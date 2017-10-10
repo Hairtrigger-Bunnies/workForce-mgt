@@ -9,6 +9,9 @@ router.get('/', (req, res, next) => {
 
 // pipe all other requests through the route modules
 router.use(require('./computerRoute'));
+router.use(require('./departmentRoute'));
+router.use(require('./employeeRoute'));
+
 // router.use(require('./foo'));
 
 
