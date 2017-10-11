@@ -5,7 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING,
     department: DataTypes.STRING,
     is_supervisor: DataTypes.BOOLEAN,
-    start_date: DataTypes.DATE
+    start_date: DataTypes.DATE,
+    assigned_computer: DataType.STRING,
+    trainging_programs: DataType.STRING
   }, {
     classMethods: {
       associate: function(models) {
