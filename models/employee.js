@@ -8,12 +8,16 @@ module.exports = (sequelize, DataTypes) => {
     start_date: DataTypes.DATE,
     assigned_computer: DataType.STRING,
     trainging_programs: DataType.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  }, 
+
+  
+    Employee.associate = function(models) {
+      Employee.belongsTo(models.Department, {
+        foreignKey: 'departmentId',
+        onDelete: 'CASCADE'
+      
+      });
+    });
+
   return Employee;
 };
