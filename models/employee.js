@@ -9,10 +9,10 @@ module.exports = function(sequelize, DataTypes) {
 
   Employee.associate = function(models) {
     Employee.belongsTo(models.Department, {
-      foreignKey: 'departmentId',
+     foreignKey: 'departmentId',
       onDelete: 'CASCADE'
-    });
+   });
 
-
+  };
   return Employee;
 };
