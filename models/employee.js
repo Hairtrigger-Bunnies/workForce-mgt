@@ -6,12 +6,16 @@ module.exports = (sequelize, DataTypes) => {
     department: DataTypes.STRING,
     is_supervisor: DataTypes.BOOLEAN,
     start_date: DataTypes.DATE
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  },
+ 
+
+    Employee.associate = function(models) {
+      Employee.belongsTo(models.Department, {
+        foreignKey: 'departmentId',
+        onDelete: 'CASCADE'
+      
+      });
+    });
+
   return Employee;
 };
