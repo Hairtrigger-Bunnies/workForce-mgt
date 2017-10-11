@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     is_supervisor: DataTypes.BOOLEAN,
     start_date: DataTypes.DATE,
     assigned_computer: DataType.STRING,
-    trainging_programs: DataType.STRING
+    trainging_program: DataType.STRING
   }, 
 
   
