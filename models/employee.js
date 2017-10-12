@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var Employee = sequelize.define('Employee', {
     first_name: DataTypes.STRING,
@@ -6,16 +7,16 @@ module.exports = (sequelize, DataTypes) => {
     department: DataTypes.STRING,
     is_supervisor: DataTypes.BOOLEAN,
     start_date: DataTypes.DATE
-  },
+  }, {timestamps: false});
  
 
-    Employee.associate = function(models) {
-      Employee.belongsTo(models.Department, {
-        foreignKey: 'departmentId',
-        onDelete: 'CASCADE'
+    // Employee.associate = function(models) {
+    //   Employee.belongsTo(models.Department, {
+    //     foreignKey: 'departmentId',
+    //     onDelete: 'CASCADE'
       
-      });
-    });
+    //   });
+    // });
 
   return Employee;
 };
