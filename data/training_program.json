@@ -1,4 +1,4 @@
-[{"training":"Home Ing","start_date":"2/2/2017","end_date":"3/1/2017","max_attendees":22},
+{"training_programs":[{"training":"Home Ing","start_date":"2/2/2017","end_date":"3/1/2017","max_attendees":22},
 {"training":"Asoka","start_date":"12/6/2016","end_date":"1/26/2017","max_attendees":199},
 {"training":"Andalax","start_date":"4/8/2017","end_date":"2/16/2017","max_attendees":92},
 {"training":"Stronghold","start_date":"3/12/2017","end_date":"2/21/2017","max_attendees":9},
@@ -97,4 +97,4 @@
 {"training":"Viva","start_date":"7/10/2017","end_date":"8/22/2017","max_attendees":104},
 {"training":"Konklab","start_date":"5/20/2017","end_date":"7/19/2017","max_attendees":135},
 {"training":"Daltfresh","start_date":"12/16/2016","end_date":"7/20/2017","max_attendees":182},
-{"training":"Voltsillam","start_date":"12/27/2016","end_date":"10/19/2016","max_attendees":44}]
+{"training":"Voltsillam","start_date":"12/27/2016","end_date":"10/19/2016","max_attendees":44}]}
