@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     start_date: DataTypes.DATE,
     assigned_computer: DataType.STRING,
     trainging_program: DataType.STRING
-  }, 
+  }, {timestamps: false}); 
   
     Employee.associate = function(models) {
       Employee.belongsTo(models.Department, {
