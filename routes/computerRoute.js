@@ -6,6 +6,6 @@ const router = Router();
 const { getComputers } = require('../controllers/computerCtrl');
 
 // When the request is a GET on the computers route, call get Computers
-router.get('/computers', getComputers);
+router.get('/computer', getComputers);
 
 module.exports = router;
