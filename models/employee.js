@@ -1,22 +1,20 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Employee = sequelize.define('Employees', {
+  var Employee = sequelize.define('Employee', {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     department: DataTypes.STRING,
     is_supervisor: DataTypes.BOOLEAN,
-    start_date: DataTypes.DATE,
-    assigned_computer: DataType.STRING,
-    trainging_program: DataType.STRING
-  }, 
-  
-    Employee.associate = function(models) {
-      Employee.belongsTo(models.Department, {
-        foreignKey: 'departmentId',
-        onDelete: 'CASCADE'
+    start_date: DataTypes.DATE
+  }, {timestamps: false});
+ 
+    // Employee.associate = function(models) {
+    //   Employee.belongsTo(models.Department, {
+    //     foreignKey: 'departmentId',
+    //     onDelete: 'CASCADE'
       
-      });
-    };
+    //   });
+    // };
 
   return Employee;
 };

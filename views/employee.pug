@@ -53,12 +53,12 @@ html
         a(class="btn-floating btn-large waves-effect waves-light")
           i(class="material-icons") add
       .row 
-        each employee in employees
+        each emp in employee
           div(class="col s12 m6")
             div(class="card")
               div(class="card-content white-text")
-                span(class="card-title") #{first_name} #{last_name}
-                p Department: #{department}
+                span(class="card-title") #{emp.first_name} #{emp.last_name}
+                p Department: #{emp.department}
               div(class="card-action")
                 a(href="#") Edit
                 a(href="#") Delete
