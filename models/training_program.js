@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     end_date: DataTypes.DATE,
     max_attendees: DataTypes.INTEGER
   }, {timestamps: false});
-    // classMethods: {
-    //   associate: function(models) {
-    //     // associations can be defined here
-    //   }
+  //   classMethods: {
+  //     associate: function(models) {
+  //       // associations can be defined here
+  //     }
   //   }
   // });
   return Training_Program;
