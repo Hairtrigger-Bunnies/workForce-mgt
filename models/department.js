@@ -6,26 +6,27 @@ module.exports = function(sequelize, DataTypes) {
     supervisor: DataTypes.INTEGER
   }, {timestamps: false});
 
-// Department.associate = (models) => {
-//   //NEEDS SUPERVISOR
-//   Department.hasOne(models.Employee, {
-//     foreignKey: 'employeeId'
-//   });
-// };
+Department.associate = (models) => {
+  //NEEDS SUPERVISOR
+  // Department.hasOne(models.Employee, {
+  //   foreignKey: 'employeeId'
+  // });
+};
+let HRDepartment = {
+  name: "Badass HR",
+  supervisor: 5
+}
+
+Department.create(HRDepartment)
+.then(function(department) {
+  console.log('saved', department.name);
+})
+
+Department.getOne({name: 'Badass HR', include: [{model: Employee}] })
+.then(function(dept) {
+    console.log('Got department:', dept);
+});
 
   return Department;
 };
 
-// let HRDepartment = new Department();
-// HRDepartment.set('name', 'Badass HR');
-// HRDepartment.set('supervisor', 5);
-
-// HRDepartment.save()
-// .then(function(beach) {
-//   console.log('dept saved:', Department.name);
-// });
-
-// Department.getOne({name: 'Badass HR', include: [{model: Employee}] })
-// .then(function(dept) {
-//     console.log('Got department:', dept);
-// });
