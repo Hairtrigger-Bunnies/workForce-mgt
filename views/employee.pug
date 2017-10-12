@@ -22,6 +22,15 @@ html
       .nav-wrapper {
         background-color: #004165;
       }
+      .btn-floating {
+        background-color: #004165;
+      }
+      .btn-floating.btn-large.waves-effect.waves-light {
+        margin: 0 45%;
+      }
+      .card {
+        background-color: #004165;
+      }
   body
     .navbar-fixed
       nav
@@ -38,6 +47,18 @@ html
               a(href="/computer") Computers
 
     .container
-      h1(class="header")  Welcome to the Bangazon Workforce Management System
-
-      h2(class="sub-header") Please make a selection from the available options in the navigation menu
+      .row  
+        h1(class="center-align") Employees
+      .row
+        a(class="btn-floating btn-large waves-effect waves-light")
+          i(class="material-icons") add
+      .row 
+        each employee in employees
+          div(class="col s12 m6")
+            div(class="card")
+              div(class="card-content white-text")
+                span(class="card-title") #{first_name} #{last_name}
+                p Department: #{department}
+              div(class="card-action")
+                a(href="#") Edit
+                a(href="#") Delete
