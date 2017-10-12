@@ -1,6 +1,8 @@
-{
+ {
   "development": {
-    "database": "bangazon-workforce",
+    "username": "postgres",
+    "password": "super",
+    "database": "workforce_mgt",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
