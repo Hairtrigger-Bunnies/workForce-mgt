@@ -1,9 +1,5 @@
-<<<<<<< HEAD:data/computer.json
-{ "computers": [{"manufacturer":"Twinder","make":"Theragesic Creme","purchase_date":"12/25/2016"},
-=======
 {"computers": [
-  {"manufacturer":"Twinder","make":"Theragesic Creme","purchase_date":"12/25/2016"},
->>>>>>> master:seeders/data/computer.json
+{"manufacturer":"Twinder","make":"Theragesic Creme","purchase_date":"12/25/2016"},
 {"manufacturer":"InnoZ","make":"Mark 3","purchase_date":"6/23/2017"},
 {"manufacturer":"Edgewire","make":"Rouge Dior 850 Red Serum","purchase_date":"9/4/2017"},
 {"manufacturer":"Zooveo","make":"Naproxen","purchase_date":"6/4/2017"},

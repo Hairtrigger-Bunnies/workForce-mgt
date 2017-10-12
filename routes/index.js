@@ -1,18 +1,18 @@
-// 'use strict';
+'use strict';
 
-// const { Router } = require('express');
-// const router = Router();
+const { Router } = require('express');
+const router = Router();
 
-// router.get('/', (req, res, next) => {
-//   res.render('index');
-// });
+router.get('/', (req, res, next) => {
+  res.render('index');
+});
 
-// // pipe all other requests through the route modules
-// router.use(require('./computerRoute'));
-// router.use(require('./departmentRoute'));
-// router.use(require('./employeeRoute'));
+// pipe all other requests through the route modules
+router.use(require('./computerRoute'));
+router.use(require('./departmentRoute'));
+router.use(require('./employeeRoute'));
 
-// // router.use(require('./foo'));
+// router.use(require('./foo'));
 
 
-// module.exports = router;
+module.exports = router;
