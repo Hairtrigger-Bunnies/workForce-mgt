@@ -1,26 +1,19 @@
 'use strict';
-
+let { training_programs } = require('./data/training_program')
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: function (queryInterface, Sequelize) {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
     */
+    return queryInterface.bulkInsert('Training_Programs', training_programs, {});
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: function (queryInterface, Sequelize) {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('Person', null, {});
     */
+    return queryInterface.bulkDelete('Training_Programs', null, {});
   }
-};
+}; 
