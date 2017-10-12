@@ -1,4 +1,6 @@
-[{"name":"Human Resources","supervisor":1},
+{"departments":
+  [
+    {"name":"Human Resources","supervisor":1},
 {"name":"Legal","supervisor":2},
 {"name":"Marketing","supervisor":3},
 {"name":"Legal","supervisor":4},
@@ -97,4 +99,4 @@
 {"name":"Marketing","supervisor":97},
 {"name":"Legal","supervisor":98},
 {"name":"Engineering","supervisor":99},
-{"name":"Product Management","supervisor":100}]
+{"name":"Product Management","supervisor":100}]}
