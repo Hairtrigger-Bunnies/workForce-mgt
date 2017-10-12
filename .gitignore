@@ -1,5 +1,4 @@
 node_modules
 .DS_Store
 .env
-/config/config.js
-/seeders
+./config/config.js

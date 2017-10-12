@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
     assigned_computer: DataType.STRING,
     trainging_program: DataType.STRING
   }, 
-
   
     Employee.associate = function(models) {
       Employee.belongsTo(models.Department, {
@@ -17,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       
       });
-    });
+    };
 
   return Employee;
 };
