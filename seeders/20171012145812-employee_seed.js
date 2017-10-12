@@ -1,5 +1,5 @@
 'use strict';
-let { employees } = require('./data/employee')
+let { employees } = require('./data/employee.json')
 module.exports = {
   up: function (queryInterface, Sequelize) {
     /*
