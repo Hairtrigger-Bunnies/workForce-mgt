@@ -24,39 +24,34 @@ module.exports.getSingleEmployee = (req, res, next) => {
 };
 
 module.exports.postEmployee = (req, res, next) => {
-  const { Employee } = req.app.put('model');
+  const { Employee } = req.app.get('models');
   Employee.create({
-    first_name:req.body.first_name,
-    last_name:req.body.last_name,
-    is_supervisor:req.body.is_supervisor,
-    department:req.body.department,
-    start_date:req.body.start_date,
-    createdAt:null,
-    updatedAt:null
+    first_name:req.body.employees.first_name,
+    last_name:req.body.employees.last_name,
+    is_supervisor:req.body.employees.is_supervisor,
+    department:req.body.employees.department,
+    start_date:req.body.employees.start_date
   })
   .then( (data) => {
-    res.status(200).redirect('/employee');
+   res.status(200).redirect('/employee');
   })
   .catch( (err) => {
-    res.status(500).json(err);
+     res.status(500).json(err)
   });
 };
 
-// Bobby: HR should be able to edit an employee
-module.exports.editSingleEmployee = (req, res, next) => {
-  const { Employee } = req.app.get('models');
-//   Employee.update({
-//     first_name:req.body.employees.first_name,
-//     last_name:req.body.employees.last_name,
-//     is_supervisor:req.body.employees.is_supervisor,
-//     department:req.body.employees.department,
-//     start_date:req.body.employees.start_date,
-//     createdAt:null,
-//     updatedAt:null
-//   .then( (employee) => {
-//     res.status(200).redirect('/employee');
-//   })
-//   .catch( (err) => {
-//     res.status(500).json(err);
-  // })
+module.exports.putEmployee = (req, res, next) => {
+  const { Employee } = req.app.get('models');  
+  Employee.update({
+    first_name:req.body.employees.first_name,
+    last_name:req.body.employees.last_name,
+    is_supervisor:req.body.employees.is_supervisor,
+    department:req.body.employees.department,
+    start_date:req.body.employees.start_date
+  }, {where:{id: req.params.id}}).then(function(employee){
+    res.status(200).send();
+  })
+  .catch( (err) => {
+    next(err); 
+  });
 };
