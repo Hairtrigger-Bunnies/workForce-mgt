@@ -7,6 +7,8 @@ html
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
+    script
+      include ../routes/departmentRoute.js
     style(type="text/css").
       body {
         margin: 0;
@@ -55,10 +57,10 @@ html
       .row 
         each dept in department
           div(class="col s12 m6")
-            a(href="#")
+            a(href=dept.id)
               div(class="card hoverable")
                 div(class="card-content white-text")
                   span(class="card-title") #{dept.id}. #{dept.name}
                 div(class="card-action")
-                  a(href="#" class="edit") Edit
-                  a(href="#" class="delete") Delete
+                  a(href=dept.id class="edit") Edit
+                  a(href=dept.id class="delete" router.delete(dept.id)) Delete

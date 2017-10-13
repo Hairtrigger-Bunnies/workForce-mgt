@@ -1,8 +1,4 @@
 node_modules
 .DS_Store
 .env
-./config/config.js
-<<<<<<< HEAD
-/seeders
-=======
->>>>>>> master
+config/config.js

@@ -40,3 +40,28 @@ module.exports.editDepartment = (req, res, next) => {
       res.status(200).json(err);
     })
 };
+
+module.exports.deleteDepartment = (req, res, next) => {
+  const { Department } = req.app.get('models');
+  console.log('REQ', req.body);
+  Department.destroy({where:{id: req.params.id}})
+  .then( (data)=>{
+    res.status(200).redirect('/department');
+    })
+    .catch( (err) => {
+      res.status(200).json(err);
+    })
+};
+
+module.exports.getSingleDepartment = (req, res, next) => {
+  const { Department } = req.app.get('models');
+  console.log('REQ', req.body);
+  Department.findOne({raw: false, where:{id: req.params.id}})
+  .then( (department)=>{
+    console.log('department', department);
+    res.render('department', {department});
+    })
+    .catch( (err) => {
+      next(err);
+    });
+};
