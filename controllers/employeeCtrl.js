@@ -12,11 +12,11 @@ module.exports.getEmployee = (req, res, next) => {
 };
 
 module.exports.getSingleEmployee = (req, res, next) => {
-  const { Employee } = req.app.get('models/:id');
-  Employee.findOne({raw: true, where: {id: req.params.id}, include: [{model: employee}] }) // love those built-in Sequelize methods
+  const { Employee } = req.app.get('models');
+  Employee.findOne({raw: true, where: {id: req.params.id} }) // love those built-in Sequelize methods
   .then( (employee) => {
     console.log('employee', employee);
-    res.render('index', {employee});
+    res.render('employee', {employee});
   })
   .catch( (err) => {
     next(err); //Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js
@@ -53,5 +53,16 @@ module.exports.putEmployee = (req, res, next) => {
   })
   .catch( (err) => {
     next(err); 
+  });
+};
+
+module.exports.destroyEmployee = (req, res, next) => {
+  const { Employee } = req.app.get('models');
+  Employee.destroy({where: {id: req.params.id} }) // love those built-in Sequelize methods
+  .then( (employee) => {
+    res.status(200).redirect('/employee');
+  })
+  .catch( (err) => {
+    res.status(200).send(); //Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js
   });
 };

@@ -6,7 +6,7 @@ module.exports = {
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
     */
-    return queryInterface.bulkInsert('Computer', computers, {});
+    return queryInterface.bulkInsert('Computers', computers, {});
   },
 
   down: function (queryInterface, Sequelize) {
@@ -14,6 +14,6 @@ module.exports = {
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
     */
-    return queryInterface.bulkDelete('Computer', null, {});
+    return queryInterface.bulkDelete('Computers', null, {});
   }
 };
