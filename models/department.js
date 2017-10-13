@@ -7,25 +7,27 @@ module.exports = function(sequelize, DataTypes) {
   }, {timestamps: false});
 
 // Department.associate = (models) => {
-//   //NEEDS SUPERVISOR
-//   Department.hasOne(models.Employee, {
-//     foreignKey: 'employeeId'
-//   });
+//   // // NEEDS SUPERVISOR
+//   // Department.hasOne(models.Employee, {
+//   //   foreignKey: 'employeeId'
+//   // });
 // };
 
-  return Department;
-};
+// let HRDepartment = {
+//   name: "Badass HR",
+//   supervisor: 5
+// }
 
-// let HRDepartment = new Department();
-// HRDepartment.set('name', 'Badass HR');
-// HRDepartment.set('supervisor', 5);
-
-// HRDepartment.save()
-// .then(function(beach) {
-//   console.log('dept saved:', Department.name);
-// });
+// Department.create(HRDepartment)
+// .then(function(department) {
+//   console.log('saved', department.name);
+// })
 
 // Department.getOne({name: 'Badass HR', include: [{model: Employee}] })
 // .then(function(dept) {
 //     console.log('Got department:', dept);
 // });
+
+  return Department;
+};
+
