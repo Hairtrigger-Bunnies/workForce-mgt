@@ -23,14 +23,28 @@ module.exports.getSingleEmployee = (req, res, next) => {
   });
 };
 
+//JT - This function brings up the add new employee form on the web browser
+//JT -This function gets called from the /add-new-employee route
+module.exports.renderEmployeePage = (req, res, next) => {
+  const { Department } = req.app.get('models');
+  Department.findAll() 
+  .then( (department) => {
+    res.render('create_employee', {department});
+  })
+  .catch( (err) => {
+    next(err); 
+  });
+};
+
 module.exports.postEmployee = (req, res, next) => {
+  console.log('test', req.body);
   const { Employee } = req.app.get('models');
   Employee.create({
-    first_name:req.body.employees.first_name,
-    last_name:req.body.employees.last_name,
-    is_supervisor:req.body.employees.is_supervisor,
-    department:req.body.employees.department,
-    start_date:req.body.employees.start_date
+    first_name:req.body.first_name,
+    last_name:req.body.last_name,
+    is_supervisor:false,
+    department:req.body.select_department,
+    start_date:req.body.start_date
   })
   .then( (data) => {
    res.status(200).redirect('/employee');
@@ -40,14 +54,14 @@ module.exports.postEmployee = (req, res, next) => {
   });
 };
 
-module.exports.putEmployee = (req, res, next) => {
+module.exports.putEmployee = (employeeObj) => {
   const { Employee } = req.app.get('models');  
   Employee.update({
-    first_name:req.body.employees.first_name,
-    last_name:req.body.employees.last_name,
-    is_supervisor:req.body.employees.is_supervisor,
-    department:req.body.employees.department,
-    start_date:req.body.employees.start_date
+    first_name:employeeObj.first_name,
+    last_name:employeeObj.last_name,
+    is_supervisor:false,
+    department:employeeObj.department,
+    start_date:employeeObj.start_date
   }, {where:{id: req.params.id}}).then(function(employee){
     res.status(200).send();
   })
