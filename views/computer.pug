@@ -53,12 +53,12 @@ html
         a(class="btn-floating btn-large waves-effect waves-light")
           i(class="material-icons") add
       .row 
-        each computer in computers
+        each cmp in computers
           div(class="col s12 m6")
             a(href="#")
               div(class="card hoverable")
                 div(class="card-content white-text")
-                  span(class="card-title") #{Computer_ID}
+                  span(class="card-title") #{cmp.Computer_ID}
                 div(class="card-action")
                   a(href="#" class="edit") Edit
                   a(href="#" class="delete") Delete
