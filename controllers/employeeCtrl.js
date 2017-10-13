@@ -46,7 +46,7 @@ module.exports.postEmployee = (req, res, next) => {
 module.exports.editSingleEmployee = (req, res, next) => {
   const { Employee } = req.app.get('models');
   Employee.update({
-    first_name: '${}', 
+    first_name: '', 
     last_name: '', 
     department: '', 
     computer: '', 
