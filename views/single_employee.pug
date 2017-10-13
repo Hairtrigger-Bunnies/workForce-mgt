@@ -50,15 +50,16 @@ html
       .row  
         h1(class="center-align") Employees
       .row
-        a(href="http://localhost:8080/add-new-employee" class="btn-floating btn-large waves-effect waves-light")
+        a(class="btn-floating btn-large waves-effect waves-light")
           i(class="material-icons") add
       .row 
         each emp in employee
           div(class="col s12 m6")
-            div(class="card")
-              div(class="card-content white-text")
-                span(class="card-title") #{emp.first_name} #{emp.last_name}
-                p Department: #{emp.department}
-              div(class="card-action")
-                a(href="#") Edit
-                a(href="#") Delete
+            a(href="#")
+              div(class="card hoverable")
+                div(class="card-content white-text")
+                  span(class="card-title") #{emp.first_name} #{emp.last_name}
+                  p Department: #{emp.department}
+                div(class="card-action")
+                  a(href="#") Edit
+                  a(href="#") Delete
