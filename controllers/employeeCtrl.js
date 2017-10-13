@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports.getEmployee = (req, res, next) => {
   const { Employee } = req.app.get('models');
   Employee.findAll() // love those built-in Sequelize methods
@@ -46,7 +48,7 @@ module.exports.putEmployee = (req, res, next) => {
     is_supervisor:req.body.employees.is_supervisor,
     department:req.body.employees.department,
     start_date:req.body.employees.start_date
-  }, {where:{id: req.params.id}}).then(function(employee){
+  }, {where:{id: req.params.id}}).then( (data) => {
     res.status(200).send();
   })
   .catch( (err) => {
