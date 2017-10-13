@@ -52,10 +52,10 @@ module.exports.editSingleEmployee = (req, res, next) => {
     computer: '', 
     training_program: ''}, 
     {fields: ['first_name', 'last_name', 'department', 'computer', 'training_programs']}) //built-in sequelize method for editing 
-  .then ( (employee) => {
-    res.render('index', {employee});
+  .then( (employee) => {
+    res.status(200).redirect('/employee');
   })
   .catch( (err) => {
-    next(err); // Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js
-  })
-}
+    res.status(500).json(err);
+  });
+};
