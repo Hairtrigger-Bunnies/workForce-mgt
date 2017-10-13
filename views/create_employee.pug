@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+    title Bangazon Workforce
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    
+    style(type="text/css").
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "open sans", arial, sans-serif;
+      }
+      h1, h3 {
+        font-family: roboto, arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #004165;
+      }
+      .nav-wrapper {
+        background-color: #004165;
+      }
+      .btn-floating {
+        background-color: #004165;
+      }
+      .btn-floating.btn-large.waves-effect.waves-light {
+        margin: 0 45%;
+      }
+      .card {
+        background-color: #004165;
+      }
+  body
+    .navbar-fixed
+      nav
+        .nav-wrapper
+          a(href="#!" class="brand-logo") Bangazon Workforce
+          ul(class="right hide-on-med-and-down")
+            li
+              a(href="/") Home
+            li
+              a(href="/employee") Employees
+            li
+              a(href="/department") Departments
+            li
+              a(href="/computer") Computers
+
+    .container
+      .row
+        h3 Enter Employee Information
+      .row
+        form(class="col s12")
+          .row
+            div(class="input-field col s6")
+              input(id="first_name" type="text" class="validate")
+              label(for="first_name") First Name
+            div(class="input-field col s6")
+              input(id="last_name" type="text" class="validate")
+              label(for="last_name") Last Name
+          .row
+            div(class="input-field col s6")
+              input(id="start_date" type="text" class="datepicker")
+              label(for="start_date") Start Date
+          .row
+            div(class="input-field col s6")
+              select
+                option(value="" disabled selected) Select Department
+                option(value="1") Option 1
+              label Department
+  script
+    include ..//node_modules/jquery/dist/jquery.min.js
+    include ../node_modules/materialize-css/dist/js/materialize.min.js
+    include ../javascripts/main.js

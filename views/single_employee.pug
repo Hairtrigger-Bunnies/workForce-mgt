@@ -1,0 +1,65 @@
+doctype html
+html
+  head
+    title Bangazon Workforce
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
+    style(type="text/css").
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "open sans", arial, sans-serif;
+      }
+      h1 {
+        font-family: roboto, arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #004165;
+      }
+      .nav-wrapper {
+        background-color: #004165;
+      }
+      .btn-floating {
+        background-color: #004165;
+      }
+      .btn-floating.btn-large.waves-effect.waves-light {
+        margin: 0 45%;
+      }
+      .card {
+        background-color: #004165;
+      }
+  body
+    .navbar-fixed
+      nav
+        .nav-wrapper
+          a(href="#!" class="brand-logo") Bangazon Workforce
+          ul(class="right hide-on-med-and-down")
+            li
+              a(href="/") Home
+            li
+              a(href="/employee") Employees
+            li
+              a(href="/department") Departments
+            li
+              a(href="/computer") Computers
+
+    .container
+      .row  
+        h1(class="center-align") Employees
+      .row
+        a(class="btn-floating btn-large waves-effect waves-light")
+          i(class="material-icons") add
+      .row 
+        each emp in employee
+          div(class="col s12 m6")
+            a(href="#")
+              div(class="card hoverable")
+                div(class="card-content white-text")
+                  span(class="card-title") #{emp.first_name} #{emp.last_name}
+                  p Department: #{emp.department}
+                div(class="card-action")
+                  a(href="#") Edit
+                  a(href="#") Delete
