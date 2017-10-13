@@ -26,7 +26,7 @@ html
         background-color: #004165;
       }
       .btn-floating.btn-large.waves-effect.waves-light {
-        margin: 0 45%;
+        margin: 0 46.6%;
       }
       .card {
         background-color: #004165;
@@ -53,11 +53,12 @@ html
         a(class="btn-floating btn-large waves-effect waves-light")
           i(class="material-icons") add
       .row 
+        each dept in department
           div(class="col s12 m6")
             a(href="#")
               div(class="card hoverable")
                 div(class="card-content white-text")
-                  span(class="card-title") #{department}
+                  span(class="card-title") #{dept.id}. #{dept.name}
                 div(class="card-action")
                   a(href="#" class="edit") Edit
                   a(href="#" class="delete") Delete

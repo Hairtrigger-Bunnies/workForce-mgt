@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 {"computers": 
   [
     {"manufacturer":"Twinder","make":"Theragesic Creme","purchase_date":"12/25/2016"},
+=======
+{"computers": [
+{"manufacturer":"Twinder","make":"Theragesic Creme","purchase_date":"12/25/2016"},
+>>>>>>> 5c5962773988377d3761ef9b855fc7c2225fa965
 {"manufacturer":"InnoZ","make":"Mark 3","purchase_date":"6/23/2017"},
 {"manufacturer":"Edgewire","make":"Rouge Dior 850 Red Serum","purchase_date":"9/4/2017"},
 {"manufacturer":"Zooveo","make":"Naproxen","purchase_date":"6/4/2017"},

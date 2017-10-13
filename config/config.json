@@ -1,8 +1,12 @@
  {
   "development": {
+<<<<<<< HEAD
     "username": "postgres",
     "password": "super",
     "database": "workforcemgt",
+=======
+    "database": "workforce_mgt",
+>>>>>>> 5c5962773988377d3761ef9b855fc7c2225fa965
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
