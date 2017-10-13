@@ -45,17 +45,18 @@ module.exports.postEmployee = (req, res, next) => {
 // Bobby: HR should be able to edit an employee
 module.exports.editSingleEmployee = (req, res, next) => {
   const { Employee } = req.app.get('models');
-  Employee.update({
-    first_name: '', 
-    last_name: '', 
-    department: '', 
-    computer: '', 
-    training_program: ''}, 
-    {fields: ['first_name', 'last_name', 'department', 'computer', 'training_programs']}) //built-in sequelize method for editing 
-  .then( (employee) => {
-    res.status(200).redirect('/employee');
-  })
-  .catch( (err) => {
-    res.status(500).json(err);
-  });
+//   Employee.update({
+//     first_name:req.body.employees.first_name,
+//     last_name:req.body.employees.last_name,
+//     is_supervisor:req.body.employees.is_supervisor,
+//     department:req.body.employees.department,
+//     start_date:req.body.employees.start_date,
+//     createdAt:null,
+//     updatedAt:null
+//   .then( (employee) => {
+//     res.status(200).redirect('/employee');
+//   })
+//   .catch( (err) => {
+//     res.status(500).json(err);
+  // })
 };
