@@ -1,4 +1,6 @@
 // main.js
+'use strict';
+
 
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month

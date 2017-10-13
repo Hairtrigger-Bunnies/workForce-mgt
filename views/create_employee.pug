@@ -50,24 +50,29 @@ html
       .row
         h3 Enter Employee Information
       .row
-        form(class="col s12")
+        form(class="col s12" method="POST" action='/add-new-employee')
           .row
             div(class="input-field col s6")
-              input(id="first_name" type="text" class="validate")
+              input(id="first_name" type="text" class="validate" name="first_name")
               label(for="first_name") First Name
             div(class="input-field col s6")
-              input(id="last_name" type="text" class="validate")
+              input(id="last_name" type="text" class="validate" name="last_name")
               label(for="last_name") Last Name
           .row
             div(class="input-field col s6")
-              input(id="start_date" type="text" class="datepicker")
+              input(id="start_date" type="text" class="datepicker" name="start_date")
               label(for="start_date") Start Date
           .row
             div(class="input-field col s6")
-              select
+              select(id="select_department" name="select_department")
                 option(value="" disabled selected) Select Department
-                option(value="1") Option 1
+                each dep in department
+                  option #{dep.name}
               label Department
+          .row
+            button(type="submit") Submit New Employee
+            //- a(id="save_new_employee" class="btn-floating btn-large waves-effect waves-light")
+            //-   i(class="material-icons") save
   script
     include ..//node_modules/jquery/dist/jquery.min.js
     include ../node_modules/materialize-css/dist/js/materialize.min.js
