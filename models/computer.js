@@ -9,6 +9,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Computer.associate = (models) => {
     Computer.belongsToMany(models.employee, {
+      as: "assigned_computer",
       through: 'employee_computers'
     })
   };

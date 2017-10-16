@@ -9,9 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id:{
+      training_id:{
         type:Sequelize.INTEGER,
-        allowNull:false,
+        allowNull:true,
         references:{
           model:'Employees',
           key:'id'
@@ -19,9 +19,9 @@ module.exports = {
         onUpdate:'cascade',
         onDelete:'cascade'
       },
-      id:{
+      employee_id:{
         type:Sequelize.INTEGER,
-        allowNull:false,
+        allowNull:true,
         references:{
           model:'Training_Programs',
           key:'id'

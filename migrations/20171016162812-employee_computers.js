@@ -9,9 +9,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id:{
+      employee_id:{
         type:Sequelize.INTEGER,
-        allowNull:false,
+        allowNull:true,
+        references:{
+          model:'Employees',
+          key:'id'
+        },
+        onUpdate:'cascade',
+        onDelete:'cascade'
+      },
+      computer_id:{
+        type:Sequelize.INTEGER,
+        allowNull:true,
         references:{
           model:'Employees',
           key:'id'
