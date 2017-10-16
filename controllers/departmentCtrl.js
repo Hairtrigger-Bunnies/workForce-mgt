@@ -15,8 +15,8 @@ module.exports.postDepartment = (req, res, next) => {
   const { Department } = req.app.get('models');
   console.log('REQ', req.body);
   Department.create({
-    name:req.body.departments.name,
-    supervisor:req.body.departments.supervisor
+    name:req.body.name,
+    supervisor:req.body.supervisor
   })
   .then( (data)=>{
     res.status(200).redirect('/department');
@@ -24,6 +24,18 @@ module.exports.postDepartment = (req, res, next) => {
     .catch( (err) => {
       res.status(200).json(err);
     })
+};
+
+module.exports.renderDepartmentPage = (req, res, next) => {
+  const { Employee } = req.app.get('models');
+  Employee.findAll() 
+  .then( (employee) => {
+    console.log('emp', employee);
+    res.render('create_department', {employee});
+  })
+  .catch( (err) => {
+    next(err); 
+  });
 };
 
 module.exports.editDepartment = (req, res, next) => {
