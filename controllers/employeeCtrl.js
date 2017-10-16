@@ -54,7 +54,7 @@ module.exports.postEmployee = (req, res, next) => {
   });
 };
 
-// BS & Dr - This function brings up the edit employee page on the html
+// BS & DR - This function brings up the edit employee page on the html
 module.exports.putEmployee = (employeeObj) => {
   const { Employee } = req.app.get('models');  
   Employee.update({
