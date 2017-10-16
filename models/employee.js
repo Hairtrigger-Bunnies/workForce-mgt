@@ -10,13 +10,16 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
  
 
-    // Employee.associate = function(models) {
-    //   Employee.belongsTo(models.Department, {
-    //     foreignKey: 'departmentId',
-    //     onDelete: 'CASCADE'
-      
-    //   });
-    // };
-
-  return Employee;
+  Employee.associate = (models) => {
+    Employee.belongsToMany(models.training_programs, {
+      through: 'employeeTraining'
+    });
+    Employee.belongsTo(models.department, {
+      foreignKey: 'id'
+    });
+    Employee.belongsToMany(models.computer, {
+      through: 'employee_computers'
+    });
+};
+return Employee;
 };
