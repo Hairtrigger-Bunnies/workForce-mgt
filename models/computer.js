@@ -8,9 +8,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {timestamps: false});
 
   Computer.associate = (models) => {
-    Computer.belongsToMany(models.employee, {
-      as: "assigned_computer",
-      through: 'employee_computers'
+    console.log("models", models.Employees);
+    Computer.belongsToMany(models.Employees, {
+      through: 'employee_computers',
+      foreignKey: "computer_id"
     })
   };
 

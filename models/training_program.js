@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Training_Program = sequelize.define('Training_Program', {
+  var Training_Program = sequelize.define('Training_Programs', {
     name: DataTypes.STRING,
     start_date: DataTypes.DATE,
     end_date: DataTypes.DATE,
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   
   Training_Program.associate = (models) => {
-    Training_Program.belongsToMany(models.employee, {
+    Training_Program.belongsToMany(models.Employees, {
       through: 'employeeTraining'
     });
   };
