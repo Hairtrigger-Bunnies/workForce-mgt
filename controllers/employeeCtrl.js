@@ -9,12 +9,26 @@ module.exports.getEmployee = (req, res, next) => {
   });
 };
 
+// Humph-Task 3 Func is to get single employee information with the two join tables 
 module.exports.getSingleEmployee = (req, res, next) => {
-  const { Employees } = req.app.get('models/:id');
-  Employees.findOne({raw: true, where: {id: req.params.id}, include: [{model: employee}] }) // love those built-in Sequelize methods
+  const { Employees, Computers, Training_Programs } = req.app.get('models');
+  let singleEmployee;
+  let assignedComputer;
+  Employees.findOne({raw: true, where: {id: req.params.id}, include: [{model: Computers, Training_Programs}] }) // love those built-in Sequelize methods
   .then( (employee) => {
-    console.log('employee', employee);
-    res.render('index', {employee});
+    singleEmployee = employee;
+    return Computers.findOne({raw: true, where: {id: req.params.id} })
+  })
+  .then( (computer) => {
+    assignedComputer = computer;
+    return Training_Programs.findOne({raw: true, where: {id: req.params.id} });
+  })  
+  .then( (training_program) => {
+    // const(s) below is to: use obj destructuring to continue passing data (defined "lets") along through the promise chain to render 
+  //  grabbing data values off of defined var and assigning them to employee or computer-- reassigning vars
+    const {first_name} = singleEmployee;
+    const {dataValues: computer} = assignedComputer;
+    res.render('single_employee', {singleEmployee, assignedComputer, training_program});
   })
   .catch( (err) => {
     next(err); //Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js
