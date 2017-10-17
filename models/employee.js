@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
  
 
   Employee.associate = (models) => {
-    console.log("modelsee", models);
     Employee.belongsToMany(models.Training_Programs, {
       through: 'employeeTraining'
     });
