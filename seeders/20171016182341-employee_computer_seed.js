@@ -1,12 +1,12 @@
 'use strict';
-let { computers } = require('./data/computer.json')
+let { employeeComputer } = require('./data/employeeComputer.json')
 module.exports = {
   up: function (queryInterface, Sequelize) {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
     */
-    return queryInterface.bulkInsert('Computers', computers, {});
+    return queryInterface.bulkInsert('employee_computers', employeeComputer, {});
   },
 
   down: function (queryInterface, Sequelize) {
@@ -14,6 +14,6 @@ module.exports = {
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
     */
-    return queryInterface.bulkDelete('Computers', null, {});
+    return queryInterface.bulkDelete('employee_computers', null, {});
   }
 };
