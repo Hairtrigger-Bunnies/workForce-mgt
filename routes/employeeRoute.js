@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getEmployee, getSingleEmployee, postEmployee, putEmployee, renderEmployeePage } = require('../controllers/employeeCtrl');
+const { getEmployee, getSingleEmployee, postEmployee, putEmployee, renderEmployeePage, destroyEmployee } = require('../controllers/employeeCtrl');
 
 
 // When the request is a GET on the computers route, call get Computers
@@ -12,5 +12,5 @@ router.get('/employee/:id', getSingleEmployee);
 router.get('/add-new-employee', renderEmployeePage);
 router.post('/add-new-employee', postEmployee);
 router.put('/employee/:id', putEmployee);
-
+router.get('/deleteEmployee/:id', destroyEmployee);
 module.exports = router;

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports.getEmployee = (req, res, next) => {
   const { Employees } = req.app.get('models');
   Employees.findAll() // love those built-in Sequelize methods
@@ -67,3 +69,15 @@ module.exports.putEmployee = (employeeObj) => {
     next(err); 
   });
 };
+
+module.exports.destroyEmployee = (req, res, next) => {
+  const { Employees } = req.app.get('models');
+  Employees.destroy({
+    where: {
+      id: req.params.id,
+    }
+  })
+  .then((result) => {
+    res.redirect('/employee');
+  })
+}
