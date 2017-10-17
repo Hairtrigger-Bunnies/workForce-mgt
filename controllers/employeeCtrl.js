@@ -12,11 +12,12 @@ module.exports.getEmployee = (req, res, next) => {
 };
 
 module.exports.getSingleEmployee = (req, res, next) => {
-  const { Employees } = req.app.get('models/:id');
-  Employees.findOne({raw: true, where: {id: req.params.id}, include: [{model: employee}] }) // love those built-in Sequelize methods
+  const { Employees } = req.app.get('models');
+  console.log("employees", Employees)
+  Employees.findOne({raw: true, where: {id: req.params.id}}) // love those built-in Sequelize methods
   .then( (employee) => {
     console.log('employee', employee);
-    res.render('index', {employee});
+    res.render('employee', {employee});
   })
   .catch( (err) => {
     next(err); //Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js

@@ -40,3 +40,15 @@ module.exports.editDepartment = (req, res, next) => {
       res.status(200).json(err);
     })
 };
+
+module.exports.destroyDepartment = (req, res, next) => {
+  const { Departments } = req.app.get('models');
+  Departments.destroy({
+    where: {
+      id: req.params.id,
+    }
+  })
+  .then((result) => {
+    res.redirect('/department');
+  })
+}
