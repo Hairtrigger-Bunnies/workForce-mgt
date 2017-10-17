@@ -2,11 +2,10 @@ doctype html
 html
   head
     title Bangazon Workforce
-    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
     style(type="text/css").
       body {
         margin: 0;
@@ -55,10 +54,15 @@ html
       .row 
         each emp in employee
           div(class="col s12 m6")
-            div(class="card")
-              div(class="card-content white-text")
-                span(class="card-title") #{emp.first_name} #{emp.last_name}
-                p Department: #{emp.department}
-              div(class="card-action")
-                a(href="#") Edit
-                a(href="/deleteEmployee/"+emp.id) Delete
+            a(href=`employee/${emp.id}`)
+              div(class="card hoverable")
+                div(class="card-content white-text")
+                  span(class="card-title") #{emp.first_name} #{emp.last_name}
+                  p Department: #{emp.department}
+                div(class="card-action")
+                  a(href="/edit-employee/"+emp.id) Edit
+                  a(href="#") Delete
+  script
+    include ..//node_modules/jquery/dist/jquery.min.js
+    include ../node_modules/materialize-css/dist/js/materialize.min.js
+    include ../javascripts/main.js
