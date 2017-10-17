@@ -9,17 +9,6 @@ module.exports = (sequelize, DataTypes) => {
     start_date: DataTypes.DATE
   }, {timestamps: false});
  
-<<<<<<< HEAD
-    // Employee.associate = function(models) {
-    //   Employee.belongsTo(models.Department, {
-    //     foreignKey: 'departmentId',
-    //     onDelete: 'CASCADE'
-      
-    //   });
-    // };
-
-  return Employee;
-=======
 
   Employee.associate = (models) => {
     Employee.belongsToMany(models.Training_Programs, {
@@ -34,5 +23,4 @@ module.exports = (sequelize, DataTypes) => {
     });
 };
 return Employee;
->>>>>>> cc7b5e0b7edc1b752dd34244e5e81a3200b783bd
 };
