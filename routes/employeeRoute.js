@@ -12,5 +12,4 @@ router.get('/employee/:id', getSingleEmployee);
 router.get('/add-new-employee', renderEmployeePage);
 router.post('/add-new-employee', postEmployee);
 router.put('/employee/:id', putEmployee);
-
 module.exports = router;

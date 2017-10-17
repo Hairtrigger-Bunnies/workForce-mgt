@@ -9,5 +9,6 @@ const { getDepartment, postDepartment, editDepartment } = require('../controller
 router.get('/department', getDepartment);
 router.post('/department', postDepartment);
 router.put('/department/:id', editDepartment);
+// router.get('./departmentDetails', getdepartmentDetails);
 
 module.exports = router;
