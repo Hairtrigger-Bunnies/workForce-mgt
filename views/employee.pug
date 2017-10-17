@@ -54,14 +54,19 @@ html
       .row 
         each emp in employee
           div(class="col s12 m6")
-            a(href="#")
+
+            a(href=`employee/${emp.id}`)
+
               div(class="card hoverable")
                 div(class="card-content white-text")
                   span(class="card-title") #{emp.first_name} #{emp.last_name}
                   p Department: #{emp.department}
                 div(class="card-action")
                   a(href="/edit-employee/"+emp.id) Edit
+
                   a(href="/deleteEmployee/"+emp.id) Delete
+
+            
   script
     include ../node_modules/jquery/dist/jquery.min.js
     include ../node_modules/materialize-css/dist/js/materialize.min.js

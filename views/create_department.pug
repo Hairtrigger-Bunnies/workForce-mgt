@@ -6,16 +6,14 @@ html
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
-    script
-      include ../routes/departmentRoute.js
+    
     style(type="text/css").
       body {
         margin: 0;
         padding: 0;
         font-family: "open sans", arial, sans-serif;
       }
-      h1 {
+      h1, h3 {
         font-family: roboto, arial, sans-serif;
         text-transform: uppercase;
         font-weight: bold;
@@ -28,7 +26,7 @@ html
         background-color: #004165;
       }
       .btn-floating.btn-large.waves-effect.waves-light {
-        margin: 0 46.6%;
+        margin: 0 45%;
       }
       .card {
         background-color: #004165;
@@ -49,18 +47,24 @@ html
               a(href="/computer") Computers
 
     .container
-      .row  
-        h1(class="center-align") Departments
       .row
-        a(href="add-new-department" class="btn-floating btn-large waves-effect waves-light")
-          i(class="material-icons") add
-      .row 
-        each dept in department
-          div(class="col s12 m6")
-            a(href="department_details/" + dept.id)
-              div(class="card hoverable")
-                div(class="card-content white-text")
-                  span(class="card-title") #{dept.id}. #{dept.name}
-                div(class="card-action")
-                  a(href=dept.id class="edit") Edit
-                  a(href="/delete_department/" + dept.id) Delete
+        h3 Enter Department Information
+      .row
+        form(class="col s12" method="POST" action='/add-new-department')
+          .row
+            div(class="input-field col s6")
+              input(id="name" type="text" class="validate" name="name")
+              label(for="name") Department Name
+          .row
+            div(class="input-field col s6")
+              select(id="select_supervisor" name="select_supervisor")
+                option(value="" disabled selected) Select Supervisor
+                each emp in employee
+                  option #{emp.first_name + " " + emp.last_name}
+              label Supervisor
+          .row
+            button(type="submit") Submit New Department
+  script
+    include ..//node_modules/jquery/dist/jquery.min.js
+    include ../node_modules/materialize-css/dist/js/materialize.min.js
+    include ../javascripts/main.js

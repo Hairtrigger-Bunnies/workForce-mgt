@@ -1,21 +1,15 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "Tulloss2012",
     "database": "workforce_mgt",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": "Tulloss2012",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "Tulloss2012",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
