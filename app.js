@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 let bodyParser = require('body-parser');
+let methodOverride = require('method-override')
 
 require('dotenv').config();
 const port = process.env.PORT || 8080
@@ -25,6 +26,9 @@ app.use(routes);
 
 // Add a 404 error handler
 // Add error handler to pipe all server errors to from the routing middleware
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 
 app.listen(port, () => {
   console.log(`listening on port ${port}` );
