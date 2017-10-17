@@ -69,8 +69,6 @@ module.exports.putEmployee = (employeeObj) => {
     next(err); 
   });
 };
-<<<<<<< HEAD
-=======
 
 module.exports.destroyEmployee = (req, res, next) => {
   const { Employees } = req.app.get('models');
@@ -83,4 +81,3 @@ module.exports.destroyEmployee = (req, res, next) => {
     res.redirect('/employee');
   })
 }
->>>>>>> a82a84dd12ceb29563625d96650d7c300b0203ae
