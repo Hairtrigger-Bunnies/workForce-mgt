@@ -63,4 +63,4 @@ html
                   span(class="card-title") #{dept.id}. #{dept.name}
                 div(class="card-action")
                   a(href=dept.id class="edit") Edit
-                  a(href=dept.id class="delete" router.delete(dept.id)) Delete
+                  a(href="/delete_department/" + dept.id) Delete

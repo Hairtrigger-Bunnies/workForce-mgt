@@ -8,7 +8,7 @@ const { getDepartment, postDepartment, editDepartment, deleteDepartment, getSing
 router.get('/department', getDepartment);
 router.post('/department', postDepartment);
 router.put('/department/:id', editDepartment);
-router.delete('/department/:id', deleteDepartment);
+router.get('/delete_department/:id', deleteDepartment);
 router.get('/add-new-department', renderDepartmentPage);
 router.post('/add-new-department', postDepartment);
 router.get('/department_details/:id', getSingleDepartment);

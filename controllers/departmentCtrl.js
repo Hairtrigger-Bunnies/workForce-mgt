@@ -14,15 +14,9 @@ module.exports.getDepartment = (req, res, next) => {
 module.exports.postDepartment = (req, res, next) => {
   const { Departments } = req.app.get('models');
   console.log('REQ', req.body);
-<<<<<<< HEAD
-  Department.create({
+  Departments.create({
     name:req.body.name,
     supervisor:req.body.supervisor
-=======
-  Departments.create({
-    name:req.body.departments.name,
-    supervisor:req.body.departments.supervisor
->>>>>>> master
   })
   .then( (data)=>{
     res.status(200).redirect('/department');
@@ -33,8 +27,8 @@ module.exports.postDepartment = (req, res, next) => {
 };
 
 module.exports.renderDepartmentPage = (req, res, next) => {
-  const { Employee } = req.app.get('models');
-  Employee.findAll() 
+  const { Employees } = req.app.get('models');
+  Employees.findAll() 
   .then( (employee) => {
     console.log('emp', employee);
     res.render('create_department', {employee});
@@ -60,11 +54,15 @@ module.exports.editDepartment = (req, res, next) => {
 };
 
 module.exports.deleteDepartment = (req, res, next) => {
-  const { Department } = req.app.get('models');
+  const { Departments } = req.app.get('models');
   console.log('REQ', req.body);
-  Department.destroy({where:{id: req.params.id}})
+  Departments.destroy({
+    where: {
+      id: req.params.id,
+    }
+  })
   .then( (data)=>{
-    res.status(200).redirect('/department');
+    res.redirect('/department');
     })
     .catch( (err) => {
       res.status(200).json(err);
@@ -72,9 +70,9 @@ module.exports.deleteDepartment = (req, res, next) => {
 };
 
 module.exports.getSingleDepartment = (req, res, next) => {
-  const { Department } = req.app.get('models');
+  const { Departments } = req.app.get('models');
   console.log('REQ', req.body);
-  Department.findOne({raw: true, where:{id:req.params.id}})
+  Departments.findOne({raw: true, where:{id:req.params.id}})
   .then( (department)=>{
     console.log('department', department);
     res.render('view_department', {department});
