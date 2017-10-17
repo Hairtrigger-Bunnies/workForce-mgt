@@ -10,6 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     Department.belongsTo(models.Departments, {
       foreignKey: 'id'
     });
+    Department.belongsTo(models.Employees, {
+      foreignKey: 'id'
+    });
   };
 return Department;
 };

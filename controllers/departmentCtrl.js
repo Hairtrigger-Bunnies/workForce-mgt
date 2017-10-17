@@ -70,14 +70,26 @@ module.exports.deleteDepartment = (req, res, next) => {
 };
 
 module.exports.getSingleDepartment = (req, res, next) => {
-  const { Departments } = req.app.get('models');
+  const { Departments, Employees } = req.app.get('models');
   console.log('REQ', req.body);
-  Departments.findOne({raw: true, where:{id:req.params.id}})
+  Departments.findOne({raw: true, where:{id:req.params.id} })
   .then( (department)=>{
     console.log('department', department);
     res.render('view_department', {department});
-    })
-    .catch( (err) => {
-      next(err);
-    });
+  })
+  .catch( (err) => {
+    next(err);
+  });
+};
+
+module.exports.getDepartmentDetails = (req, res, next) => {
+  const { Departments, Employess } = req.app.get('models');
+  Departments.findAll({raw: true, where:{id:req.params.id}, include: {model: Employees} })
+  .then( (department) => {
+    console.log('department', department);
+    res.render('view_department', {department});
+  })
+  .catch( (err) => {
+    next(err);
+  });
 };

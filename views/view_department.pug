@@ -50,9 +50,12 @@ html
       .row
         h3 Department Details:
       .row
-          h4 ID: #{department.id}
-          h4  Name: #{department.name}
-          h4 Supervisor: #{department.supervisor}
+        h4 ID: #{department.id}
+        h4  Name: #{department.name}
+        h4 Supervisor: #{department.supervisor}
+        h4 Employees: 
+          .ul
+            li #{department.first_name} #{department.last_name}
   script
     include ..//node_modules/jquery/dist/jquery.min.js
     include ../node_modules/materialize-css/dist/js/materialize.min.js
