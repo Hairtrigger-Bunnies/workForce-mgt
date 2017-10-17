@@ -2,7 +2,7 @@
 
 module.exports.getDepartment = (req, res, next) => {
   const { Departments } = req.app.get('models');
-  Departments.findAll() // love those built-in Sequelize methods
+  Departments.findAll({ order: ['id'] }) // love those built-in Sequelize methods
   .then( (department) => {
     res.render('department', {department});
   })
@@ -13,7 +13,7 @@ module.exports.getDepartment = (req, res, next) => {
 
 module.exports.postDepartment = (req, res, next) => {
   const { Departments } = req.app.get('models');
-  console.log('REQ', req.body);
+  // console.log('REQ', req.body);
   Departments.create({
     name:req.body.name,
     supervisor:req.body.supervisor
@@ -30,7 +30,7 @@ module.exports.renderDepartmentPage = (req, res, next) => {
   const { Employees } = req.app.get('models');
   Employees.findAll() 
   .then( (employee) => {
-    console.log('emp', employee);
+    // console.log('emp', employee);
     res.render('create_department', {employee});
   })
   .catch( (err) => {
@@ -40,7 +40,7 @@ module.exports.renderDepartmentPage = (req, res, next) => {
 
 module.exports.editDepartment = (req, res, next) => {
   const { Departments } = req.app.get('models');
-  console.log('REQ', req.body);
+  // console.log('REQ', req.body);
   Departments.update({
     name:req.body.departments.name,
     supervisor:req.body.departments.supervisor
@@ -55,7 +55,7 @@ module.exports.editDepartment = (req, res, next) => {
 
 module.exports.deleteDepartment = (req, res, next) => {
   const { Departments } = req.app.get('models');
-  console.log('REQ', req.body);
+  // console.log('REQ', req.body);
   Departments.destroy({
     where: {
       id: req.params.id,
@@ -70,14 +70,18 @@ module.exports.deleteDepartment = (req, res, next) => {
 };
 
 module.exports.getSingleDepartment = (req, res, next) => {
-  const { Departments } = req.app.get('models');
-  console.log('REQ', req.body);
-  Departments.findOne({raw: true, where:{id:req.params.id}})
-  .then( (department)=>{
-    console.log('department', department);
-    res.render('view_department', {department});
-    })
-    .catch( (err) => {
-      next(err);
-    });
-};
+  const { Departments, Employees } = req.app.get('models');
+  // console.log('REQ', req.body);
+  Departments.findOne({raw: true, where:{id:req.params.id} })
+  .then( (dpt)=>{
+    Employees.findAll({where: {department: dpt.name} })
+  .then( (employees) => {
+    // console.log('employees', employees);
+    res.render('view_department', {dpt, employees});
+  })
+  // console.log('department', department);
+  // res.render('view_department', {department})
+  .catch( (err) => {
+    next(err);
+  });
+})};
