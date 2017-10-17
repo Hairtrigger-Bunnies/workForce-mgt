@@ -76,7 +76,7 @@ module.exports.getSingleDepartment = (req, res, next) => {
   .then( (dpt)=>{
     Employees.findAll({where: {department: dpt.name} })
   .then( (employees) => {
-    console.log('employees', employees);
+    // console.log('employees', employees);
     res.render('view_department', {dpt, employees});
   })
   // console.log('department', department);

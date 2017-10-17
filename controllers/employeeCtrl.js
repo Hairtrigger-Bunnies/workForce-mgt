@@ -18,10 +18,6 @@ module.exports.getSingleEmployee = (req, res, next) => {
   let assignedComputer;
   Employees.findOne({raw: true, where: {id: req.params.id}, include: [{model: Computers, Training_Programs}] }) // love those built-in Sequelize methods
   .then( (employee) => {
-<<<<<<< HEAD
-    // console.log('employee', employee);
-    res.render('index', {employee});
-=======
     singleEmployee = employee;
     return Computers.findOne({raw: true, where: {id: req.params.id} })
   })
@@ -35,7 +31,6 @@ module.exports.getSingleEmployee = (req, res, next) => {
     const {first_name} = singleEmployee;
     const {dataValues: computer} = assignedComputer;
     res.render('single_employee', {singleEmployee, assignedComputer, training_program});
->>>>>>> master
   })
   .catch( (err) => {
     next(err); //Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js
