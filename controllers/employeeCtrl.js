@@ -56,16 +56,16 @@ module.exports.postEmployee = (req, res, next) => {
 //JT -This function gets called from the /add-new-employee route
 module.exports.renderEditEmployee = (req, res, next) => {
   const { Employees } = req.app.get('models');
-  Departments.findAll() 
-  .then( (department) => {
-    res.render('create_employee', {department});
+  Employees.findAll() 
+  .then( (employee) => {
+    res.render('create_employee', {employee});
   })
   .catch( (err) => {
     next(err); 
   });
 };
 
-module.exports.putEmployee = (employeeObj) => {
+module.exports.patchEmployee = (req, res, next) => {
   const { Employees } = req.app.get('models');  
   Employees.update({
     first_name:employeeObj.first_name,
