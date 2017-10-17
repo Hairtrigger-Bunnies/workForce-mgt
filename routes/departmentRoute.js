@@ -11,6 +11,6 @@ router.put('/department/:id', editDepartment);
 router.delete('/department/:id', deleteDepartment);
 router.get('/add-new-department', renderDepartmentPage);
 router.post('/add-new-department', postDepartment);
-router.get('/department/:id', getSingleDepartment);
+router.get('/department_details/:id', getSingleDepartment);
 
 module.exports = router;

@@ -68,10 +68,10 @@ module.exports.deleteDepartment = (req, res, next) => {
 module.exports.getSingleDepartment = (req, res, next) => {
   const { Department } = req.app.get('models');
   console.log('REQ', req.body);
-  Department.findOne({raw: false, where:{id: req.params.id}})
+  Department.findOne({raw: true, where:{id:req.params.id}})
   .then( (department)=>{
     console.log('department', department);
-    res.render('department', {department});
+    res.render('view_department', {department});
     })
     .catch( (err) => {
       next(err);
