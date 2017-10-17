@@ -2,8 +2,7 @@
   "development": {
     "database": "workforce_mgt",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "password": "cm1feAmn"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
