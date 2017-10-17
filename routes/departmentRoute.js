@@ -3,11 +3,14 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getDepartment, postDepartment, editDepartment, getDepartmentDetails } = require('../controllers/departmentCtrl');
+const { getDepartment, postDepartment, editDepartment, deleteDepartment, getSingleDepartment, renderDepartmentPage } = require('../controllers/departmentCtrl');
 
-// When the request is a GET on the computers route, call get Computers
 router.get('/department', getDepartment);
 router.post('/department', postDepartment);
 router.put('/department/:id', editDepartment);
+router.get('/delete_department/:id', deleteDepartment);
+router.get('/add-new-department', renderDepartmentPage);
+router.post('/add-new-department', postDepartment);
+router.get('/department_details/:id', getSingleDepartment);
 
 module.exports = router;
