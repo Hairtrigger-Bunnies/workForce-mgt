@@ -53,13 +53,17 @@ html
         a(class="btn-floating btn-large waves-effect waves-light")
           i(class="material-icons") add
       .row 
-        each emp in employee
-          div(class="col s12 m6")
-            a(href="#")
-              div(class="card hoverable")
-                div(class="card-content white-text")
-                  span(class="card-title") #{emp.first_name} #{emp.last_name}
-                  p Department: #{emp.department}
-                div(class="card-action")
-                  a(href="#") Edit
-                  a(href="#") Delete
+      
+      
+        div(class="col s12 m6")
+          div(class="card hoverable")
+            div(class="card-content white-text")
+              span(class="card-title") #{singleEmployee.first_name} #{singleEmployee.last_name}
+              p Department: #{singleEmployee.department}
+              p Assigned Computer: 
+              p Manufaturer: #{assignedComputer.manufacturer} Make: #{assignedComputer.make} Purchase Date: #{assignedComputer.purchase_date}
+              p Training Programs: #{training_program.name}
+              p Start Date: #{training_program.start_date} End Date: #{training_program.end_date}
+            div(class="card-action")
+              a(href="#") Edit
+              a(href="#") Delete
