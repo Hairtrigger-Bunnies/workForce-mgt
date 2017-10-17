@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     Department.belongsTo(models.Departments, {
       foreignKey: 'id'
     });
-    Department.belongsTo(models.Employees, {
+    Department.hasMany(models.Employees, {
       foreignKey: 'id'
     });
   };

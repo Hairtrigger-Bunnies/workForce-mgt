@@ -15,7 +15,7 @@ module.exports.getSingleEmployee = (req, res, next) => {
   const { Employees } = req.app.get('models/:id');
   Employees.findOne({raw: true, where: {id: req.params.id}, include: [{model: employee}] }) // love those built-in Sequelize methods
   .then( (employee) => {
-    console.log('employee', employee);
+    // console.log('employee', employee);
     res.render('index', {employee});
   })
   .catch( (err) => {
@@ -37,7 +37,7 @@ module.exports.renderEmployeePage = (req, res, next) => {
 };
 
 module.exports.postEmployee = (req, res, next) => {
-  console.log('test', req.body);
+  // console.log('test', req.body);
   const { Employees } = req.app.get('models');
   Employees.create({
     first_name:req.body.first_name,
