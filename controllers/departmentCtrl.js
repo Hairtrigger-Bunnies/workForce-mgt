@@ -1,8 +1,8 @@
 'use strict'
 
 module.exports.getDepartment = (req, res, next) => {
-  const { Department } = req.app.get('models');
-  Department.findAll() // love those built-in Sequelize methods
+  const { Departments } = req.app.get('models');
+  Departments.findAll() // love those built-in Sequelize methods
   .then( (department) => {
     res.render('department', {department});
   })
@@ -12,11 +12,17 @@ module.exports.getDepartment = (req, res, next) => {
 };
 
 module.exports.postDepartment = (req, res, next) => {
-  const { Department } = req.app.get('models');
+  const { Departments } = req.app.get('models');
   console.log('REQ', req.body);
+<<<<<<< HEAD
   Department.create({
     name:req.body.name,
     supervisor:req.body.supervisor
+=======
+  Departments.create({
+    name:req.body.departments.name,
+    supervisor:req.body.departments.supervisor
+>>>>>>> master
   })
   .then( (data)=>{
     res.status(200).redirect('/department');
@@ -39,9 +45,9 @@ module.exports.renderDepartmentPage = (req, res, next) => {
 };
 
 module.exports.editDepartment = (req, res, next) => {
-  const { Department } = req.app.get('models');
+  const { Departments } = req.app.get('models');
   console.log('REQ', req.body);
-  Department.update({
+  Departments.update({
     name:req.body.departments.name,
     supervisor:req.body.departments.supervisor
   }, {where:{id: req.params.id}})
