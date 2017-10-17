@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports.getEmployee = (req, res, next) => {
-  const { Employee } = req.app.get('models');
-  Employee.findAll() // love those built-in Sequelize methods
+  const { Employees } = req.app.get('models');
+  Employees.findAll() // love those built-in Sequelize methods
   .then( (employee) => {
     res.render('employee', {employee});
   })
@@ -12,8 +12,8 @@ module.exports.getEmployee = (req, res, next) => {
 };
 
 module.exports.getSingleEmployee = (req, res, next) => {
-  const { Employee } = req.app.get('models/:id');
-  Employee.findOne({raw: true, where: {id: req.params.id}, include: [{model: employee}] }) // love those built-in Sequelize methods
+  const { Employees } = req.app.get('models/:id');
+  Employees.findOne({raw: true, where: {id: req.params.id}, include: [{model: employee}] }) // love those built-in Sequelize methods
   .then( (employee) => {
     console.log('employee', employee);
     res.render('index', {employee});
@@ -26,8 +26,8 @@ module.exports.getSingleEmployee = (req, res, next) => {
 //JT - This function brings up the add new employee form on the web browser
 //JT -This function gets called from the /add-new-employee route
 module.exports.renderEmployeePage = (req, res, next) => {
-  const { Department } = req.app.get('models');
-  Department.findAll() 
+  const { Departments } = req.app.get('models');
+  Departments.findAll() 
   .then( (department) => {
     res.render('create_employee', {department});
   })
@@ -38,8 +38,8 @@ module.exports.renderEmployeePage = (req, res, next) => {
 
 module.exports.postEmployee = (req, res, next) => {
   console.log('test', req.body);
-  const { Employee } = req.app.get('models');
-  Employee.create({
+  const { Employees } = req.app.get('models');
+  Employees.create({
     first_name:req.body.first_name,
     last_name:req.body.last_name,
     is_supervisor:false,
@@ -56,8 +56,8 @@ module.exports.postEmployee = (req, res, next) => {
 
 // BS & DR - This function brings up the edit employee page on the html
 module.exports.putEmployee = (employeeObj) => {
-  const { Employee } = req.app.get('models');  
-  Employee.update({
+  const { Employees } = req.app.get('models');  
+  Employees.update({
     first_name:employeeObj.first_name,
     last_name:employeeObj.last_name,
     is_supervisor:false,
