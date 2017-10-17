@@ -54,7 +54,7 @@ html
       .row 
         each emp in employee
           div(class="col s12 m6")
-            a(href="#")
+            a(href=`employee/${emp.id}`)
               div(class="card hoverable")
                 div(class="card-content white-text")
                   span(class="card-title") #{emp.first_name} #{emp.last_name}
