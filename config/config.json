@@ -1,8 +1,6 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "Tulloss2012",
-    "database": "workforce_mgt",
+    "database": "workforce_mgt"
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
