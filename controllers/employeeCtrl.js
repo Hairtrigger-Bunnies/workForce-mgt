@@ -52,6 +52,19 @@ module.exports.postEmployee = (req, res, next) => {
   });
 };
 
+//JT - This function brings up the add new employee form on the web browser
+//JT -This function gets called from the /add-new-employee route
+module.exports.renderEditEmployee = (req, res, next) => {
+  const { Employees } = req.app.get('models');
+  Departments.findAll() 
+  .then( (department) => {
+    res.render('create_employee', {department});
+  })
+  .catch( (err) => {
+    next(err); 
+  });
+};
+
 module.exports.putEmployee = (employeeObj) => {
   const { Employees } = req.app.get('models');  
   Employees.update({
