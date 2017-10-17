@@ -2,7 +2,7 @@
 
 module.exports.getDepartment = (req, res, next) => {
   const { Departments } = req.app.get('models');
-  Departments.findAll() // love those built-in Sequelize methods
+  Departments.findAll({ order: ['id'] }) // love those built-in Sequelize methods
   .then( (department) => {
     res.render('department', {department});
   })

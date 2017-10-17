@@ -3,7 +3,7 @@
 module.exports.getComputer = (req, res, next) => {
   const { Computers } = req.app.get('models');
   console.log("Computer", Computers);
-  Computers.findAll() // love those built-in Sequelize methods
+  Computers.findAll({ order: ['id'] }) // love those built-in Sequelize methods
   .then( (computers) => {
     res.render('computer', {computers});
   })

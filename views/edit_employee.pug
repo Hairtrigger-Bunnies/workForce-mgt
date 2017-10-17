@@ -50,17 +50,17 @@ html
       .row
         h3 Edit Employee Information
       .row
-        form(class="col s12" method="POST" action='/put-employee/'+employee.id)
+        form(class="col s12" method="POST" action=`/patch-employee/${employee.id}?_method=PATCH`)
           .row
             div(class="input-field col s6")
-              input(disabled placeholder=employee.first_name type="text" id="disabled" class="validate" name="first_name")
+              input(disabled placeholder=employee.first_name value=employee.first_name type="text" id="disabled" class="validate" name="first_name")
               label(for="first_name") First Name
             div(class="input-field col s6")
-              input(autofocus placeholder=employee.last_name id="last_name" type="text" class="validate" name="last_name")
+              input(autofocus placeholder=employee.last_name value=employee.last_name id="last_name" type="text" class="validate" name="last_name")
               label(for="last_name") Last Name
           .row
             div(class="input-field col s6")
-              input(placeholder=employee.department id="department" type="text" class="validate" name="department")
+              input(placeholder=employee.department value=employee.department id="department" type="text" class="validate" name="department")
               label(for="department") Department
             div(class="input-field col s6")
               input(placeholder="tbd" id="computert" type="text" class="validate" name="computer")
