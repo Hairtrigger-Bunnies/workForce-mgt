@@ -51,7 +51,7 @@ module.exports.renderEmployeePage = (req, res, next) => {
 };
 
 module.exports.postEmployee = (req, res, next) => {
-  console.log('test', req.body);
+  // console.log('test', req.body);
   const { Employees } = req.app.get('models');
   Employees.create({
     first_name:req.body.first_name,
