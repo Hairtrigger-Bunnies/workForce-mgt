@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  var Employee = sequelize.define('Employee', {
+  var Employee = sequelize.define('Employees', {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     department: DataTypes.STRING,
@@ -10,13 +10,17 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
  
 
-    // Employee.associate = function(models) {
-    //   Employee.belongsTo(models.Department, {
-    //     foreignKey: 'departmentId',
-    //     onDelete: 'CASCADE'
-      
-    //   });
-    // };
-
-  return Employee;
+  Employee.associate = (models) => {
+    Employee.belongsToMany(models.Training_Programs, {
+      through: 'employeeTraining'
+    });
+    Employee.belongsTo(models.Departments, {
+      foreignKey: 'id'
+    });
+    Employee.belongsToMany(models.Computers, {
+      through: 'employee_computers',
+      foreignKey: "employee_id"
+    });
+};
+return Employee;
 };
