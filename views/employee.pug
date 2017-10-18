@@ -63,11 +63,8 @@ html
                   p Department: #{emp.department}
                 div(class="card-action")
                   a(href="/edit-employee/"+emp.id) Edit
-
                   a(href="/deleteEmployee/"+emp.id) Delete
-
-            
   script
-    include ..//node_modules/jquery/dist/jquery.min.js
+    include ../node_modules/jquery/dist/jquery.min.js
     include ../node_modules/materialize-css/dist/js/materialize.min.js
     include ../javascripts/main.js

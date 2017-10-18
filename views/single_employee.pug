@@ -6,14 +6,13 @@ html
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
     style(type="text/css").
       body {
         margin: 0;
         padding: 0;
         font-family: "open sans", arial, sans-serif;
       }
-      h1 {
+      h1, h2, h3 {
         font-family: roboto, arial, sans-serif;
         text-transform: uppercase;
         font-weight: bold;
@@ -48,22 +47,25 @@ html
 
     .container
       .row  
-        h1(class="center-align") Employees
-      .row
-        a(class="btn-floating btn-large waves-effect waves-light")
-          i(class="material-icons") add
+        h3(class="center-align") #{singleEmployee.first_name} #{singleEmployee.last_name}
       .row 
-      
-      
-        div(class="col s12 m6")
-          div(class="card hoverable")
-            div(class="card-content white-text")
-              span(class="card-title") #{singleEmployee.first_name} #{singleEmployee.last_name}
-              p Department: #{singleEmployee.department}
-              p Assigned Computer: 
-              p Manufaturer: #{assignedComputer.manufacturer} Make: #{assignedComputer.make} Purchase Date: #{assignedComputer.purchase_date}
-              p Training Programs: #{training_program.name}
-              p Start Date: #{training_program.start_date} End Date: #{training_program.end_date}
-            div(class="card-action")
-              a(href="#") Edit
-              a(href="#") Delete
+        div(class="divider")
+        div(class="section")
+          h5 Department
+          p #{singleEmployee.department}
+        div(class="divider")
+        div(class="section")
+          h5 Assigned Computer
+          p #{assignedComputer.manufacturer}
+          p #{assignedComputer.make}
+          p #{assignedComputer.purchase_date}
+        div(class="divider")
+        div(class="section")
+          h5 Training Programs
+          p #{training_program.name}
+          p #{training_program.start_date}
+          p #{training_program.end_date}
+  script
+    include ../node_modules/jquery/dist/jquery.min.js
+    include ../node_modules/materialize-css/dist/js/materialize.min.js
+    include ../javascripts/main.js
