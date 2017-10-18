@@ -12,12 +12,17 @@ module.exports.getDepartment = (req, res, next) => {
 };
 
 module.exports.postDepartment = (req, res, next) => {
-  const { Departments } = req.app.get('models');
-  // console.log('REQ', req.body);
-  Departments.create({
-    name:req.body.name,
-    supervisor:req.body.supervisor
-  })
+  const { Departments, Employees } = req.app.get('models'); 
+  console.log('REQ', req.body);
+  let empName = req.body.supervisor.split(" ");
+  Employees.findOne({ where: {first_name: empName[0], last_name: empName[1]}})
+    .then( (emp) => {
+      console.log('data', emp.dataValues.id);
+      Departments.create({
+        name:req.body.name,
+        supervisor:emp.dataValues.id
+      })
+    })
   .then( (data)=>{
     res.status(200).redirect('/department');
     })
@@ -76,8 +81,11 @@ module.exports.getSingleDepartment = (req, res, next) => {
   .then( (dpt)=>{
     Employees.findAll({where: {department: dpt.name} })
   .then( (employees) => {
-    // console.log('employees', employees);
-    res.render('view_department', {dpt, employees});
+    Employees.findOne({where: {id:dpt.supervisor}})
+      .then( (sup) => {
+        console.log('sup', sup);
+        res.render('view_department', {dpt, employees, sup});    
+      })
   })
   // console.log('department', department);
   // res.render('view_department', {department})

@@ -57,7 +57,7 @@ html
               label(for="name") Department Name
           .row
             div(class="input-field col s6")
-              select(id="select_supervisor" name="select_supervisor")
+              select(id="id" name="supervisor")
                 option(value="" disabled selected) Select Supervisor
                 each emp in employee
                   option #{emp.first_name + " " + emp.last_name}
